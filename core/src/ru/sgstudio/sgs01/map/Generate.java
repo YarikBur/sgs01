@@ -10,10 +10,13 @@ public class Generate {
 			generateMap();
 			newMap=!newMap;
 		}
-		
-		for(int Y=0;Y<y;Y++){
-			for(int X=0;X<x;X++){
-				System.out.format("%4d", map[0][Y][X]);
+		for(int Z=0;Z<z;Z++){
+			for(int Y=0;Y<y;Y++){
+				System.out.print("Z"+Z+" - ");
+				for(int X=0;X<x;X++){
+					System.out.format("%4d", map[Z][Y][X]);
+				}
+				System.out.print('\n');
 			}
 			System.out.print('\n');
 		}
