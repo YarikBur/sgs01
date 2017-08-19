@@ -1,7 +1,7 @@
 package ru.sgstudio.sgs01.map;
 
 public class Generate {
-	private static int z=6, y=15, x=10;
+	private static int z=6, y=15, x=250;
 	private static int map[][][] = new int[z][y][x];
 	private static boolean newMap = true;
 	
