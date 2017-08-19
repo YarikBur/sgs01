@@ -7,9 +7,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Tiles {
-	private Texture texture = null;
-	private int Lines = 0;
-	private int Columns = 0;
+	private static Texture texture = null;
+	private static int Lines = 0;
+	private static int Columns = 0;
 	
 	private static Map<String, TextureRegion> textureRegions = null;
 	
@@ -25,6 +25,7 @@ public class Tiles {
 	private void createAtlas(){
 		TextureRegion tmp[][] = TextureRegion.split(texture, texture.getWidth()/Columns, texture.getHeight()/Lines);
 		for(int y=0;y<Lines;y++) for(int x=0;x<Columns;x++) textureRegions.put("tiles"+y+"_"+x, tmp[y][x]);
+		Lines=0; Columns=0; texture=null;
 	}
 	
 	public Map<String, TextureRegion> getTextureRegion(){ return textureRegions; }

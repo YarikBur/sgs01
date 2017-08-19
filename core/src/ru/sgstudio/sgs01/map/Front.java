@@ -46,7 +46,6 @@ public class Front {
 
 				batch.draw(atlasTiles.get("tiles0_" + map[player.getZPlayer()][y][x]), dispX, dispY);
 //				System.out.format("%2d", map[zPlayer][y][x]);
-//				batch.draw(atlasTiles.get("tiles0_" + map[zPlayer][y][x]), 5 * 16, 0 * 16);
 			}
 //			System.out.print('\n');
 		}
