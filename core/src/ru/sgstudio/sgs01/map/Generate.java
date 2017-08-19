@@ -23,7 +23,6 @@ public class Generate {
 	}
 	
 	public int[][][] getMap(){ return map; }
-	
 	private void generateMap(){
 		for(int Z=0;Z<z;Z++){
 			for(int Y=0;Y<y;Y++){

@@ -9,9 +9,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import ru.sgstudio.sgs01.main.Main;
 import ru.sgstudio.sgs01.map.Front;
 import ru.sgstudio.sgs01.map.Generate;
+import ru.sgstudio.sgs01.player.Player;
 import ru.sgstudio.sgs01.utils.Variables;
+import ru.sgstudio.sgs01.utils.conntroller.KeyManager;
 
 public class MyGame implements Screen {
+	private static float time = 0;
+	private static long startTime;
 	
 	private SpriteBatch batch;
 	
@@ -19,18 +23,23 @@ public class MyGame implements Screen {
 	
 	@SuppressWarnings("unused")
 	private Main main;
-	@SuppressWarnings("unused")
 	private Generate gen;
 	private Variables var;
 	private Front front;
+	private Player player;
+	private KeyManager manager;
 	
 	public MyGame(Main main) { this.main = main; }
 
 	@Override
 	public void show() {
+		startTime = System.currentTimeMillis();
+		
 		gen = new Generate();
 		var = new Variables();
 		front = new Front();
+		player = new Player();
+		manager = new KeyManager();
 		
 		batch = new SpriteBatch();
 		cam = new OrthographicCamera(var.getWorldWidth(), var.getWorldHeight());
@@ -40,6 +49,11 @@ public class MyGame implements Screen {
 
 	@Override
 	public void render(float delta) {
+		if(time!=(System.currentTimeMillis() - startTime) / 100){
+			pressed();
+			time++;
+		}
+		
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
@@ -49,6 +63,18 @@ public class MyGame implements Screen {
 		
 		front.render(batch);
 		batch.end();
+	}
+	
+	private void pressed(){
+		if(manager.getPressedUp())
+			if(gen.getMap().length-1>player.getZPlayer()) 
+				player.setZPlayer(player.getZPlayer()+1);
+		if(manager.getPressedDown())
+			if(player.getZPlayer()>0)
+				player.setZPlayer(player.getZPlayer()-1);
+		
+		if(manager.getPressedLeft()) player.setYPlayer(player.getYPlayer()-1);
+		if(manager.getPressedRight()) player.setYPlayer(player.getYPlayer()+1);
 	}
 
 	@Override
