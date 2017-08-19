@@ -29,6 +29,12 @@ public class Generate {
 			for(int Y=0;Y<y;Y++){
 				for(int X=0;X<x;X++){
 					if(Y>4) map[Z][Y][X] = Y-5;
+					else if(Z==0) map[Z][Y][X] = 0;
+					else if(Z==1) map[Z][Y][X] = 1;
+					else if(Z==2) map[Z][Y][X] = 2;
+					else if(Z==3) map[Z][Y][X] = 3;
+					else if(Z==4) map[Z][Y][X] = 4;
+					else if(Z==5) map[Z][Y][X] = 5;
 					else map[Z][Y][X] = 0;
 				}
 			}
