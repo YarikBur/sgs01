@@ -10,6 +10,7 @@ import ru.sgstudio.sgs01.main.Main;
 import ru.sgstudio.sgs01.map.Front;
 import ru.sgstudio.sgs01.map.Generate;
 import ru.sgstudio.sgs01.map.MiniMapCam;
+import ru.sgstudio.sgs01.map.Top;
 import ru.sgstudio.sgs01.player.Player;
 import ru.sgstudio.sgs01.utils.Variables;
 import ru.sgstudio.sgs01.utils.conntroller.KeyManager;
@@ -38,15 +39,14 @@ public class MyGame implements Screen {
 		startTime = System.currentTimeMillis();
 		
 		gen = new Generate();
-		var = new Variables();
 		front = new Front();
 		player = new Player();
 		manager = new KeyManager();
 		mimimap = new MiniMapCam();
 		
 		batch = new SpriteBatch();
-		cam = new OrthographicCamera(var.getWorldWidth(), var.getWorldHeight());
-		cam.translate(var.getWorldWidth()/2, var.getWorldHeight()/2);
+		cam = new OrthographicCamera(Variables.getWorldWidth(), Variables.getWorldHeight());
+		cam.translate(Variables.getWorldWidth()/2, Variables.getWorldHeight()/2);
 		cam.update();
 	}
 
@@ -60,14 +60,20 @@ public class MyGame implements Screen {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
+		
 		cam.update();
 		batch.setProjectionMatrix(cam.combined);
-		batch.begin();
-		
+		batch.begin();		
 		front.render(batch);
 		batch.end();
 		
 		mimimap.MinMapCamera(batch);
+		
+		/*
+		batch.begin();
+		top.render(batch);
+		batch.end();
+		*/
 	}
 	
 	private void pressed(){
