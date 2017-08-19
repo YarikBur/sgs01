@@ -26,6 +26,8 @@ public class Top {
 			gen = new Generate();
 			tiles = new Tiles();
 			player = new Player();
+			player.setXPlayer(15);
+			player.setYPlayer(5);
 			
 			tiles.createAtlas("atlas\\test.png", lines, columns);
 			atlasTiles = tiles.getTextureRegion();
