@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import ru.sgstudio.sgs01.main.Main;
 import ru.sgstudio.sgs01.map.Front;
 import ru.sgstudio.sgs01.map.Generate;
+import ru.sgstudio.sgs01.map.Top;
 import ru.sgstudio.sgs01.player.Player;
 import ru.sgstudio.sgs01.utils.Variables;
 import ru.sgstudio.sgs01.utils.conntroller.KeyManager;
@@ -26,6 +27,7 @@ public class MyGame implements Screen {
 	private Generate gen;
 	private Variables var;
 	private Front front;
+	private Top top;
 	private Player player;
 	private KeyManager manager;
 	
@@ -38,6 +40,7 @@ public class MyGame implements Screen {
 		gen = new Generate();
 		var = new Variables();
 		front = new Front();
+		top = new Top();
 		player = new Player();
 		manager = new KeyManager();
 		
@@ -61,7 +64,8 @@ public class MyGame implements Screen {
 		batch.setProjectionMatrix(cam.combined);
 		batch.begin();
 		
-		front.render(batch);
+//		front.render(batch);
+		top.render(batch);
 		batch.end();
 	}
 	
