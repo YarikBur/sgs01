@@ -44,17 +44,17 @@ public class Top {
     		for(int x=0;x<map[0][0].length;x++){
     			for(int y=0;y<map[0].length;y++){
     				if(map[z][y][x]!=0){
-    					System.out.format("%4dz  %4dy  %4dx   %4dBlock", z, y, x, map[z][y][x]);
+//    					System.out.format("%4dz  %4dy  %4dx   %4dBlock", z, y, x, map[z][y][x]);
     					batch.draw(atlasTiles.get("tiles0_" + map[z][y][x]), x*16, z*16);
     					break;
     				} else {
-    					System.out.format("%4dZ  %4dY  %4dX", z, y, x);
+//    					System.out.format("%4dZ  %4dY  %4dX", z, y, x);
 
     				}
     			}
-    			System.out.print('\n');
+//    			System.out.print('\n');
     		}
-    		System.out.print('\n');
+//    		System.out.print('\n');
     	}
 	}
 }

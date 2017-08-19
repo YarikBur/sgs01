@@ -67,7 +67,7 @@ public class MyGame implements Screen {
 		front.render(batch);
 		batch.end();
 		
-		mimimap.MinMapCamera();
+		mimimap.MinMapCamera(batch);
 	}
 	
 	private void pressed(){

@@ -40,4 +40,12 @@ public class KeyManager {
 		if(Gdx.input.isKeyPressed(Keys.ENTER)) return true;
 		else return false;
 	}
+	public boolean getPressedZ() {
+		if(Gdx.input.isKeyPressed(Keys.Z)) return true;
+		else return false;
+	}
+	public boolean getPressedX() {
+		if(Gdx.input.isKeyPressed(Keys.X)) return true;
+		else return false;
+	}
 }
