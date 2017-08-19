@@ -40,7 +40,7 @@ public class Front {
 		for (int y = map[0].length - 1; y >= 0; y--) {
 			for (int x = 0; x < map[0][0].length; x++) {
 				int dispX = x * 16;
-				int dispY = (map[0].length - y) * 16;
+				int dispY = (map[0].length - y - 1) * 16;
 
 				batch.draw(atlasTiles.get("tiles0_" + map[zPlayer][y][x]), dispX, dispY);
 				// System.out.format("%2d", map[zPlayer][y][x]);
