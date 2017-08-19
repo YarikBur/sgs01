@@ -5,16 +5,17 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 
 import ru.sgstudio.sgs01.main.Main;
+import ru.sgstudio.sgs01.map.Generate;
 
 public class MyGame implements Screen {
 	private Main main;
+	private Generate gen;
 
 	public MyGame(Main main) { this.main = main; }
 
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
-		
+		gen = new Generate();
 	}
 
 	@Override
