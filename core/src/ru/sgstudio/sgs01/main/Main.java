@@ -14,7 +14,7 @@ public class Main extends Game {
 		game = new MyGame(this);
 		load = new Load(this);
 		
-		this.setScreen(load);
+		this.setScreen(game);
 	}
 	
 	public void setScr(Screen scr){ this.setScreen(scr); }
