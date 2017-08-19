@@ -7,12 +7,14 @@ import ru.sgstudio.sgs01.MyGame;
 
 public class Main extends Game {
 	public Screen game;
+	private Screen load;
 
 	@Override
 	public void create() {
 		game = new MyGame(this);
+		load = new Load(this);
 		
-		this.setScreen(game);
+		this.setScreen(load);
 	}
 	
 	public void setScr(Screen scr){ this.setScreen(scr); }
