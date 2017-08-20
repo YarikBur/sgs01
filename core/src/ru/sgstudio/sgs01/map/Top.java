@@ -15,6 +15,7 @@ public class Top {
 	
 	private Generate gen;
 	private Tiles tiles;
+	@SuppressWarnings("unused")
 	private Player player;
 	
 	private static int map[][][];
@@ -36,7 +37,8 @@ public class Top {
 		}
 	}
 	
-    public void render(SpriteBatch batch){
+    @SuppressWarnings("unused")
+	public void render(SpriteBatch batch){
     	int i=0, ii=0;
     	
 //    	if(player.getZPlayer()-5<0) i=0;
