@@ -7,6 +7,12 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import ru.sgstudio.sgs01.utils.Tiles;
 
+/**
+ * Класс игрока
+ * @author Yarik
+ * @version 1.1
+ */
+
 public class Player {
 	private static int zPlayer=3, yPlayer=9, xPlayer=15;
 	
@@ -34,9 +40,19 @@ public class Player {
 		}
 	}
 	
+	/**
+	 * Позволяет рисовать персонажа на слое сбоку
+	 * @param batch - Для рисовки персонажа
+	 */
+	
 	public void drawFront(SpriteBatch batch) {
 		batch.draw(atlasPlayer.get("tiles0_0"), xPlayer*16, yPlayer*16);
 	}
+	
+	/**
+	 * Позволяет рисовать персонажа на слое сверху
+	 * @param batch - Для рисовки персонажа
+	 */
 	
 	public void drawTop(SpriteBatch batch) {
 		batch.draw(atlasPlayer.get("tiles0_0"), xPlayer*16, zPlayer*16);

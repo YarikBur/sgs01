@@ -1,5 +1,11 @@
 package ru.sgstudio.sgs01.map;
 
+/**
+ * Класс для генерации мира
+ * @author Yarik
+ * @version 1.1
+ */
+
 public class Generate {
 	private static int z=15, y=20, x=30;
 	private static int map[][][] = new int[z][y][x];
@@ -22,7 +28,13 @@ public class Generate {
 		}
 	}
 	
+	/**
+	 * Возвращает сгенерированный мир
+	 * @return int[][][]
+	 */
+	
 	public int[][][] getMap(){ return map; }
+	
 	private void generateMap(){
 		for(int Z=0;Z<z;Z++){
 			for(int Y=0;Y<y;Y++){

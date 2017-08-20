@@ -6,6 +6,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import ru.sgstudio.sgs01.player.Player;
 import ru.sgstudio.sgs01.utils.Variables;
 
+/**
+ * Ётот класс нужен дл€ рисовки миникарты(рисовка карты сверху)
+ * @author Yarik
+ * @version 1.1
+ */
+
 public class MiniMapCam  {
 	private  OrthographicCamera camera;
 	private Top top;
@@ -19,7 +25,11 @@ public class MiniMapCam  {
 		player = new Player();
 	}
 
-
+	/**
+	 * ћетод позвол€ющий нарисовать миникарту
+	 * @param batch - ƒл€ рисовки миникарты
+	 */
+	
 	public void MinMapCamera(SpriteBatch batch) {
 		int i=-55, ii=-240, iii=player.getZPlayer(), iiii=player.getXPlayer();
 		camera.position.set(i, ii, 0);

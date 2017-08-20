@@ -8,6 +8,12 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import ru.sgstudio.sgs01.player.Player;
 import ru.sgstudio.sgs01.utils.Tiles;
 
+ /**
+ * Класс позволяет рисовать 3-ех мерную матрицу сбоку
+ * @author Yarik
+ * @version 1.1
+ */
+
 public class Front {
 	
 	private Map<String, TextureRegion> atlasTiles;
@@ -34,6 +40,11 @@ public class Front {
 			create=!create;
 		}
 	}
+	
+	/**
+	 * Риует 3-ех мерный массив сбоку
+	 * @param batch - Для рисовки текстур
+	 */
 	
 	public void render(SpriteBatch batch){
 //		System.out.print('\n');

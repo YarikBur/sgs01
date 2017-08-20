@@ -8,6 +8,12 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import ru.sgstudio.sgs01.player.Player;
 import ru.sgstudio.sgs01.utils.Tiles;
 
+ /**
+ * Класс позволяет рисовать 3-ех мерную матрицу сверху
+ * @author Yarik
+ * @version 1.1
+ */
+
 public class Top {
     private Map<String, TextureRegion> atlasTiles;
     
@@ -35,6 +41,11 @@ public class Top {
 			create = !create;
 		}
 	}
+	
+	/**
+	 * Риует 3-ех мерный массив сверху
+	 * @param batch - Для рисовки текстур
+	 */
 	
  	public void render(SpriteBatch batch){
     	int i=0, ii=0, iii=0, iiii=0;

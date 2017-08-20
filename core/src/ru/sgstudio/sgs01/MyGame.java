@@ -14,6 +14,12 @@ import ru.sgstudio.sgs01.player.Player;
 import ru.sgstudio.sgs01.utils.Variables;
 import ru.sgstudio.sgs01.utils.conntroller.KeyManager;
 
+/**
+ * Главный экран(класс) игры
+ * @author Yarik
+ * @version 1.2
+ */
+
 public class MyGame implements Screen {
 	private static float time = 0;
 	private static long startTime;
