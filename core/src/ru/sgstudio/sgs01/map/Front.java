@@ -42,8 +42,18 @@ public class Front {
 				int dispX = x * 16;
 				int dispY = (map[0].length - y - 1) * 16;
 
-				batch.draw(atlasTiles.get("tiles0_" + map[player.getZPlayer()][y][x]), dispX, dispY);
-//				System.out.format("%2d", map[zPlayer][y][x]);
+				if(map[player.getZPlayer()][y][x]==0) batch.draw(atlasTiles.get("tiles0_0"), dispX, dispY);
+				if(map[player.getZPlayer()][y][x]==1) batch.draw(atlasTiles.get("tiles0_1"), dispX, dispY);
+				if(map[player.getZPlayer()][y][x]==2) batch.draw(atlasTiles.get("tiles0_2"), dispX, dispY);
+				if(map[player.getZPlayer()][y][x]==3) batch.draw(atlasTiles.get("tiles0_3"), dispX, dispY);
+				if(map[player.getZPlayer()][y][x]==4) batch.draw(atlasTiles.get("tiles0_4"), dispX, dispY);
+				if(map[player.getZPlayer()][y][x]==5) batch.draw(atlasTiles.get("tiles0_5"), dispX, dispY);
+				if(map[player.getZPlayer()][y][x]==6) batch.draw(atlasTiles.get("tiles0_6"), dispX, dispY);
+				if(map[player.getZPlayer()][y][x]==7) batch.draw(atlasTiles.get("tiles0_7"), dispX, dispY);
+				if(map[player.getZPlayer()][y][x]==8) batch.draw(atlasTiles.get("tiles0_8"), dispX, dispY);
+				if(map[player.getZPlayer()][y][x]==9) batch.draw(atlasTiles.get("tiles0_9"), dispX, dispY);
+				
+//				System.out.format("%4d", map[player.getZPlayer()][y][x]);
 			}
 //			System.out.print('\n');
 		}
