@@ -19,8 +19,10 @@ public class MiniMapCam  {
 		player = new Player();
 	}
 
+
 	public void MinMapCamera(SpriteBatch batch) {
     	camera.position.set(-55, -240, 0);
+
     	
     	camera.update();
     	
