@@ -21,8 +21,19 @@ public class MiniMapCam  {
 
 
 	public void MinMapCamera(SpriteBatch batch) {
-    	camera.position.set(-55, -240, 0);
-
+		int i=-55, ii=-240, iii=player.getZPlayer(), iiii=player.getXPlayer();
+		camera.position.set(i, ii, 0);
+		
+    	if(iii!=player.getZPlayer()) {
+    		if(iii>player.getZPlayer()) i-=player.getZPlayer()*16;
+    		if(iii<player.getZPlayer()) i+=player.getZPlayer()*16;
+    		camera.translate(i, ii);
+    	}
+    	if(iiii!=player.getXPlayer()) {
+    		if(iiii>player.getXPlayer()) ii-=player.getXPlayer()*16;
+    		if(iiii<player.getXPlayer()) ii+=player.getXPlayer()*16;
+    		camera.translate(i, ii);
+    	}
     	
     	camera.update();
     	
@@ -31,6 +42,6 @@ public class MiniMapCam  {
     	
     	top.render(batch);
     	player.drawTop(batch);
-    	batch.end();    	
+    	batch.end();    
     }
 }

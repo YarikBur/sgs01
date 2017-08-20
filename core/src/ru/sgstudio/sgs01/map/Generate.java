@@ -9,17 +9,17 @@ public class Generate {
 		if(newMap){
 			generateMap();
 			newMap=!newMap;
+			for(int Z=0;Z<z;Z++){
+				for(int Y=0;Y<y;Y++){
+					System.out.print("Z"+Z+" - ");
+					for(int X=0;X<x;X++){
+						System.out.format("%4d", map[Z][Y][X]);
+					}
+					System.out.print('\n');
+				}
+				System.out.print('\n');
+			}
 		}
-//		for(int Z=0;Z<z;Z++){
-//			for(int Y=0;Y<y;Y++){
-//				System.out.print("Z"+Z+" - ");
-//				for(int X=0;X<x;X++){
-//					System.out.format("%4d", map[Z][Y][X]);
-//				}
-//				System.out.print('\n');
-//			}
-//			System.out.print('\n');
-//		}
 	}
 	
 	public int[][][] getMap(){ return map; }

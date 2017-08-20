@@ -15,7 +15,6 @@ public class Top {
 	
 	private Generate gen;
 	private Tiles tiles;
-	@SuppressWarnings("unused")
 	private Player player;
 	
 	private static int map[][][];
@@ -37,32 +36,31 @@ public class Top {
 		}
 	}
 	
-    @SuppressWarnings("unused")
-	public void render(SpriteBatch batch){
-    	int i=0, ii=0;
+ 	public void render(SpriteBatch batch){
+    	int i=0, ii=0, iii=0, iiii=0;
     	
-//    	if(player.getZPlayer()-5<0) i=0;
-//    	else i=player.getZPlayer()-5;
-//    	if(player.getZPlayer()+5>map.length) ii=map.length;
-//    	else ii=player.getZPlayer()+5;
+    	if(player.getZPlayer()-5<=0) i=0;
+    	else i=player.getZPlayer()-5;
+    	if(player.getZPlayer()+5>=map.length) ii=map.length;
+    	else ii=player.getZPlayer()+5;
 //    	System.out.println(ii);
     	
-    	for(int z=i;z<map.length;z++){
+    	for(int z=i;z<ii;z++){
     		
-//    		if(player.getXPlayer()-10<0) i=0;
-//        	else i=player.getXPlayer()-10;
-//    		if(player.getXPlayer()+10>map[0][0].length) ii=map[0][0].length;
-//        	else ii=player.getXPlayer()+10;
-    		
-    		for(int x=i;x<map[0][0].length;x++){
+    		if(player.getXPlayer()-5<=0) iii=0;
+        	else iii=player.getXPlayer()-5;
+    		if(player.getXPlayer()+5>=map[0][0].length) iiii=map[0][0].length;
+        	else iiii=player.getXPlayer()+5;
+//    		System.out.println(iiii);
+
+    		for(int x=iii;x<iiii;x++){
     			for(int y=0;y<map[0].length;y++){
     				if(map[z][y][x]!=0){
 //    					System.out.format("%4dz  %4dy  %4dx   %4dBlock", z, y, x, map[z][y][x]);
     					batch.draw(atlasTiles.get("tiles0_" + map[z][y][x]), x*16, z*16);
     					break;
     				} else {
-//    					System.out.format("%4dZ  %4dY  %4dX", z, y, x);
-
+//    					System.out.format("%4dZ  %4dY  %4dX   ", z, y, x);
     				}
     			}
 //    			System.out.print('\n');
