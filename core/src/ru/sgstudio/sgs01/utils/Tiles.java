@@ -10,7 +10,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
  * Используется для разрезания картинки
  * @author Yarik
  * @version 1.0
- *
  */
 
 public class Tiles {

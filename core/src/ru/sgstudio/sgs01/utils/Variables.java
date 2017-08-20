@@ -2,6 +2,12 @@ package ru.sgstudio.sgs01.utils;
 
 import com.badlogic.gdx.Gdx;
 
+/**
+ * Глобальные переменные, используемые в разных классах
+ * @author Yarik
+ * @version 1.0
+ */
+
 public class Variables {
 	private static float division = 1.2f;
 	private static float WORLD_WIDTH = Gdx.graphics.getWidth()/division;
