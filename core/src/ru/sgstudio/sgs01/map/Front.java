@@ -31,8 +31,6 @@ public class Front {
 			
 			map = gen.getMap();
 			
-			player.setZPlayer(map.length/2);
-			
 			create=!create;
 		}
 	}

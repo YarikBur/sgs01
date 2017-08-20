@@ -1,12 +1,20 @@
 package ru.sgstudio.sgs01.player;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
+import java.util.Map;
+
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
+import ru.sgstudio.sgs01.utils.Tiles;
 
 public class Player {
-	private static int zPlayer, yPlayer, xPlayer;
-	private static Sprite spritePlayer;
+	private static int zPlayer=3, yPlayer=9, xPlayer=15;
+	
+	private static Tiles tiles;
+	
+	private static boolean created=false;
+	
+	private static Map<String, TextureRegion> atlasPlayer;
 	
 	public int getZPlayer(){ return zPlayer; }
 	public int getYPlayer(){ return yPlayer; }
@@ -16,14 +24,21 @@ public class Player {
 	public void setYPlayer(int yPlayer){ Player.yPlayer = yPlayer; }
 	public void setXPlayer(int xPlayer){ Player.xPlayer = xPlayer; }
 	
-	public void setPlayer(Sprite sprite) {
-		Player.spritePlayer = sprite;
+	public Player() {
+		if(!created) {
+			tiles = new Tiles();
+			tiles.createAtlas("test.png", 1, 1);
+			atlasPlayer = tiles.getTextureRegion();
+			
+			created=!created;
+		}
 	}
-	public void draw(Batch spriteBatch) {
-		update(Gdx.graphics.getDeltaTime());
-		spritePlayer.draw(spriteBatch);
+	
+	public void drawFront(SpriteBatch batch) {
+		batch.draw(atlasPlayer.get("tiles0_0"), xPlayer*16, yPlayer*16);
 	}
-	public void update(float deltaTime) {
-		
+	
+	public void drawTop(SpriteBatch batch) {
+		batch.draw(atlasPlayer.get("tiles0_0"), xPlayer*16, zPlayer*16);
 	}
 }

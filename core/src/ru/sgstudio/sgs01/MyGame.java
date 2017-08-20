@@ -10,7 +10,6 @@ import ru.sgstudio.sgs01.main.Main;
 import ru.sgstudio.sgs01.map.Front;
 import ru.sgstudio.sgs01.map.Generate;
 import ru.sgstudio.sgs01.map.MiniMapCam;
-import ru.sgstudio.sgs01.map.Top;
 import ru.sgstudio.sgs01.player.Player;
 import ru.sgstudio.sgs01.utils.Variables;
 import ru.sgstudio.sgs01.utils.conntroller.KeyManager;
@@ -26,7 +25,6 @@ public class MyGame implements Screen {
 	@SuppressWarnings("unused")
 	private Main main;
 	private Generate gen;
-	private Variables var;
 	private Front front;
 	private Player player;
 	private KeyManager manager;
@@ -64,16 +62,12 @@ public class MyGame implements Screen {
 		cam.update();
 		batch.setProjectionMatrix(cam.combined);
 		batch.begin();		
+		
 		front.render(batch);
+		player.drawFront(batch);
 		batch.end();
 		
 		mimimap.MinMapCamera(batch);
-		
-		/*
-		batch.begin();
-		top.render(batch);
-		batch.end();
-		*/
 	}
 	
 	private void pressed(){
@@ -84,15 +78,19 @@ public class MyGame implements Screen {
 			if(player.getZPlayer()>0)
 				player.setZPlayer(player.getZPlayer()-1);
 		
-		if(manager.getPressedLeft()) player.setYPlayer(player.getYPlayer()-1);
-		if(manager.getPressedRight()) player.setYPlayer(player.getYPlayer()+1);
+		if(manager.getPressedLeft()) 
+			if(player.getXPlayer()>0)
+				player.setXPlayer(player.getXPlayer()-1);
+		if(manager.getPressedRight()) 
+			if(gen.getMap()[0][0].length-1>player.getXPlayer())
+				player.setXPlayer(player.getXPlayer()+1);
 	}
 
 	@Override
 	public void resize(int width, int height) {
-		var.updateResolution(width, height);
-		cam.viewportWidth = var.getWorldWidth();
-		cam.viewportHeight = var.getWorldHeight();
+		Variables.updateResolution(width, height);
+		cam.viewportWidth = Variables.getWorldWidth();
+		cam.viewportHeight = Variables.getWorldHeight();
 		cam.update();
 //		System.out.println(cam.viewportHeight + "  " +cam.viewportWidth);
 	}

@@ -26,8 +26,6 @@ public class Top {
 			gen = new Generate();
 			tiles = new Tiles();
 			player = new Player();
-			player.setXPlayer(15);
-			player.setYPlayer(5);
 			
 			tiles.createAtlas("atlas\\test.png", lines, columns);
 			atlasTiles = tiles.getTextureRegion();
@@ -39,9 +37,22 @@ public class Top {
 	}
 	
     public void render(SpriteBatch batch){
-
-    	for(int z=0;z<map.length;z++){
-    		for(int x=0;x<map[0][0].length;x++){
+    	int i=0, ii=0;
+    	
+//    	if(player.getZPlayer()-5<0) i=0;
+//    	else i=player.getZPlayer()-5;
+//    	if(player.getZPlayer()+5>map.length) ii=map.length;
+//    	else ii=player.getZPlayer()+5;
+//    	System.out.println(ii);
+    	
+    	for(int z=i;z<map.length;z++){
+    		
+//    		if(player.getXPlayer()-10<0) i=0;
+//        	else i=player.getXPlayer()-10;
+//    		if(player.getXPlayer()+10>map[0][0].length) ii=map[0][0].length;
+//        	else ii=player.getXPlayer()+10;
+    		
+    		for(int x=i;x<map[0][0].length;x++){
     			for(int y=0;y<map[0].length;y++){
     				if(map[z][y][x]!=0){
 //    					System.out.format("%4dz  %4dy  %4dx   %4dBlock", z, y, x, map[z][y][x]);
