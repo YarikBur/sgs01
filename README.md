@@ -16,3 +16,14 @@ sgs01/desktop/src/ru/sgstudio/sgs01/desktop       | Путь до лаунчер
 sgs01/download                                    | Тут можно будет скачать .jar версию нашей игры
 sgs01/core/assets/                                | Тут находятся все текстуры, исходники в .psd и шрифты
 sgs01/core/src/ru/sgstudio/sgs01/                 | Код игры можно найти по этому пути
+
+Участники
+---
+_Разработка_
+* YarikBur
+* Smirnov48
+* Iokin
+* Atommaks
+
+_Графика_
+* YarikBur
