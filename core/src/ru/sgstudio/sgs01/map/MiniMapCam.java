@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import ru.sgstudio.sgs01.player.Player;
 import ru.sgstudio.sgs01.utils.Variables;
+import ru.sgstudio.sgs01.utils.conntroller.KeyManager;
 
 /**
  * Этот класс нужен для рисовки миникарты(рисовка карты сверху)
@@ -13,16 +14,23 @@ import ru.sgstudio.sgs01.utils.Variables;
  */
 
 public class MiniMapCam  {
+	private static float time = 0;
+	private static long startTime;
+	
 	private  OrthographicCamera camera;
 	private Top top;
 	private Player player;
+	private KeyManager key;
 	
 	private float w = Variables.getWorldWidth() * 2, h = Variables.getWorldHeight() * 2;
 	
 	public MiniMapCam() {
+		startTime = System.currentTimeMillis();
 		top = new Top();
 		camera = new OrthographicCamera(w, h);
 		player = new Player();
+		camera.position.set(-55, -240, 0);
+		key = new KeyManager();
 	}
 
 	/**
@@ -31,19 +39,10 @@ public class MiniMapCam  {
 	 */
 	
 	public void MinMapCamera(SpriteBatch batch) {
-		int i=-55, ii=-240, iii=player.getZPlayer(), iiii=player.getXPlayer();
-		camera.position.set(i, ii, 0);
-		
-    	if(iii!=player.getZPlayer()) {
-    		if(iii>player.getZPlayer()) i-=player.getZPlayer()*16;
-    		if(iii<player.getZPlayer()) i+=player.getZPlayer()*16;
-    		camera.translate(i, ii);
-    	}
-    	if(iiii!=player.getXPlayer()) {
-    		if(iiii>player.getXPlayer()) ii-=player.getXPlayer()*16;
-    		if(iiii<player.getXPlayer()) ii+=player.getXPlayer()*16;
-    		camera.translate(i, ii);
-    	}
+		if(time!=(System.currentTimeMillis() - startTime) / 100){
+			pressed();
+			time++;
+		}
     	
     	camera.update();
     	
@@ -54,4 +53,11 @@ public class MiniMapCam  {
     	player.drawTop(batch);
     	batch.end();    
     }
+	
+	private void pressed() {
+		if(key.getPressedUp()) camera.translate(0, 16);
+		if(key.getPressedDown()) camera.translate(0, -16);
+		if(key.getPressedLeft()) camera.translate(-16, 0);
+		if(key.getPressedRight()) camera.translate(16, 0);
+	}
 }
