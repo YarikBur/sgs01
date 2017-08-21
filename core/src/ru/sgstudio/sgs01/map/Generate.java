@@ -1,13 +1,13 @@
 package ru.sgstudio.sgs01.map;
 
 /**
- * Класс для генерации мира
+ * пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
  * @author Yarik
  * @version 1.1
  */
 
 public class Generate {
-	private static int z=15, y=20, x=30;
+	private static int z=30, y=15, x=30;
 	private static int map[][][] = new int[z][y][x];
 	private static boolean newMap = true;
 	
@@ -29,7 +29,7 @@ public class Generate {
 	}
 	
 	/**
-	 * Возвращает сгенерированный мир
+	 * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
 	 * @return int[][][]
 	 */
 	
