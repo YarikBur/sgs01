@@ -4,18 +4,19 @@ import com.badlogic.gdx.Gdx;
 
 /**
  * Глобальные переменные, используемые в разных классах
+ * <p>Методы: <b>updateResolution</b></p>
  * @author Yarik
  * @version 1.0
+ * 
  */
 
 public class Variables {
-	private static float division = 1.2f;
-	private static float WORLD_WIDTH = Gdx.graphics.getWidth()/division;
-	private static float WORLD_HEIGHT = Gdx.graphics.getHeight()/division;
+	private static float WORLD_WIDTH = Gdx.graphics.getWidth();
+	private static float WORLD_HEIGHT = Gdx.graphics.getHeight();
 	
 	public static void updateResolution(int width, int height){
-		WORLD_WIDTH = width/division;
-		WORLD_HEIGHT = height/division;
+		WORLD_WIDTH = width;
+		WORLD_HEIGHT = height;
 	}
 	
 	public static float getWorldWidth(){ return WORLD_WIDTH; }
