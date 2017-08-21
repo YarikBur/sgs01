@@ -17,20 +17,28 @@ public class MiniMapCam  {
 	private static float time = 0;
 	private static long startTime;
 	
-	private  OrthographicCamera camera;
-	private Top top;
-	private Player player;
-	private KeyManager key;
+	private static OrthographicCamera camera;
+	private static Top top;
+	private static Player player;
+	private static KeyManager key;
+	private static Generate gen;
 	
-	private float w = Variables.getWorldWidth() * 2, h = Variables.getWorldHeight() * 2;
+	private static boolean created = false;
+	
+	private static float w = Variables.getWorldWidth() * 2, h = Variables.getWorldHeight() * 2;
 	
 	public MiniMapCam() {
-		startTime = System.currentTimeMillis();
-		top = new Top();
-		camera = new OrthographicCamera(w, h);
-		player = new Player();
-		camera.position.set(-55, -240, 0);
-		key = new KeyManager();
+		if(!created) {
+			startTime = System.currentTimeMillis();
+			top = new Top();
+			camera = new OrthographicCamera(w, h);
+			player = new Player();
+			camera.position.set(-160, -220, 0);
+			key = new KeyManager();
+			gen = new Generate();
+			
+			created=!created;
+		}
 	}
 
 	/**
@@ -55,9 +63,17 @@ public class MiniMapCam  {
     }
 	
 	private void pressed() {
-		if(key.getPressedUp()) camera.translate(0, 16);
-		if(key.getPressedDown()) camera.translate(0, -16);
-		if(key.getPressedLeft()) camera.translate(-16, 0);
-		if(key.getPressedRight()) camera.translate(16, 0);
+		if(key.getPressedUp()) 
+			if(gen.getMap().length-1>player.getZPlayer())
+				camera.translate(0, 16);
+		if(key.getPressedDown())
+			if(player.getZPlayer()>0)
+				camera.translate(0, -16);
+		if(key.getPressedLeft())
+			if(player.getXPlayer()>0)
+				camera.translate(-16, 0);
+		if(key.getPressedRight())
+			if(gen.getMap()[0][0].length-1>player.getXPlayer())
+				camera.translate(16, 0);
 	}
 }
