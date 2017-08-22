@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 /**
  * Используется для разрезания картинки
+ * <p>Методы: <b>createAtlas</b></p>
  * @author Yarik
  * @version 1.0
  */

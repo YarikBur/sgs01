@@ -11,6 +11,7 @@ import ru.sgstudio.sgs01.map.Front;
 import ru.sgstudio.sgs01.map.Generate;
 import ru.sgstudio.sgs01.map.MiniMapCam;
 import ru.sgstudio.sgs01.player.Player;
+import ru.sgstudio.sgs01.text.Text;
 import ru.sgstudio.sgs01.utils.Variables;
 import ru.sgstudio.sgs01.utils.conntroller.KeyManager;
 
@@ -35,6 +36,7 @@ public class MyGame implements Screen {
 	private Player player;
 	private KeyManager manager;
 	private MiniMapCam mimimap;
+	private Text text;
 	
 	public MyGame(Main main) { this.main = main; }
 
@@ -47,6 +49,7 @@ public class MyGame implements Screen {
 		player = new Player();
 		manager = new KeyManager();
 		mimimap = new MiniMapCam();
+		text = new Text();
 		
 		batch = new SpriteBatch();
 		cam = new OrthographicCamera(Variables.getWorldWidth(), Variables.getWorldHeight());
@@ -71,9 +74,15 @@ public class MyGame implements Screen {
 		
 		front.render(batch);
 		player.drawFront(batch);
+		
+		textDraw();
 		batch.end();
 		
 		mimimap.MinMapCamera(batch);
+	}
+	
+	private void textDraw() {
+		text.leftUp(batch, "FPS: "+Gdx.graphics.getFramesPerSecond(), "Z: "+player.getZPlayer(), "Y: "+player.getYPlayer(), "X: "+player.getXPlayer());
 	}
 	
 	private void pressed(){
