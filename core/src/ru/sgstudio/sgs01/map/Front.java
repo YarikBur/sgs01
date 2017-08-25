@@ -2,10 +2,13 @@ package ru.sgstudio.sgs01.map;
 
 import java.util.Map;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import ru.sgstudio.sgs01.player.Player;
+import ru.sgstudio.sgs01.utils.RGBA;
 import ru.sgstudio.sgs01.utils.Tiles;
 
  /**
@@ -53,16 +56,46 @@ public class Front {
 					int dispX = x * 16;
 					int dispY = (map[0].length - y - 1) * 16;
 
-					if(map[z][y][x]==0) batch.draw(atlasTiles.get("tiles0_0"), dispX, dispY);
-					if(map[z][y][x]==1) batch.draw(atlasTiles.get("tiles0_1"), dispX, dispY);
-					if(map[z][y][x]==2) batch.draw(atlasTiles.get("tiles0_2"), dispX, dispY);
-					if(map[z][y][x]==3) batch.draw(atlasTiles.get("tiles0_3"), dispX, dispY);
-					if(map[z][y][x]==4) batch.draw(atlasTiles.get("tiles0_4"), dispX, dispY);
-					if(map[z][y][x]==5) batch.draw(atlasTiles.get("tiles0_5"), dispX, dispY);
-					if(map[z][y][x]==6) batch.draw(atlasTiles.get("tiles0_6"), dispX, dispY);
-					if(map[z][y][x]==7) batch.draw(atlasTiles.get("tiles0_7"), dispX, dispY);
-					if(map[z][y][x]==8) batch.draw(atlasTiles.get("tiles0_8"), dispX, dispY);
-					if(map[z][y][x]==9) batch.draw(atlasTiles.get("tiles0_9"), dispX, dispY);
+					if(map[z][y][x]==0) {
+						texture(batch, atlasTiles.get("tiles0_0"), dispX, dispY, z);
+//						batch.draw(atlasTiles.get("tiles0_0"), dispX, dispY);
+					}
+					else if(map[z][y][x]==1) {
+						texture(batch, atlasTiles.get("tiles0_1"), dispX, dispY, z);
+//						batch.draw(atlasTiles.get("tiles0_1"), dispX, dispY);
+					}
+					else if(map[z][y][x]==2) {
+						texture(batch, atlasTiles.get("tiles0_2"), dispX, dispY, z);
+//						batch.draw(atlasTiles.get("tiles0_2"), dispX, dispY);
+					}
+					else if(map[z][y][x]==3) {
+						texture(batch, atlasTiles.get("tiles0_3"), dispX, dispY, z);
+//						batch.draw(atlasTiles.get("tiles0_3"), dispX, dispY);
+					}
+					else if(map[z][y][x]==4) {
+						texture(batch, atlasTiles.get("tiles0_4"), dispX, dispY, z);
+//						batch.draw(atlasTiles.get("tiles0_4"), dispX, dispY);
+					}
+					else if(map[z][y][x]==5) {
+						texture(batch, atlasTiles.get("tiles0_5"), dispX, dispY, z);
+//						batch.draw(atlasTiles.get("tiles0_5"), dispX, dispY);
+					}
+					else if(map[z][y][x]==6) {
+						texture(batch, atlasTiles.get("tiles0_6"), dispX, dispY, z);
+//						batch.draw(atlasTiles.get("tiles0_6"), dispX, dispY);
+					}
+					else if(map[z][y][x]==7) {
+						texture(batch, atlasTiles.get("tiles0_7"), dispX, dispY, z);
+//						batch.draw(atlasTiles.get("tiles0_7"), dispX, dispY);
+					}
+					else if(map[z][y][x]==8) {
+						texture(batch, atlasTiles.get("tiles0_8"), dispX, dispY, z);
+//						batch.draw(atlasTiles.get("tiles0_8"), dispX, dispY);
+					}
+					else {
+						texture(batch, atlasTiles.get("tiles0_9"), dispX, dispY, z);
+//						batch.draw(atlasTiles.get("tiles0_9"), dispX, dispY);
+					}
 					
 //					System.out.format("%4d", map[z][y][x]);
 				}
@@ -70,5 +103,22 @@ public class Front {
 			}
 //			System.out.print('\n');
 		}
+	}
+	
+	private void texture(SpriteBatch batch, TextureRegion textureRegion, int x, int y, int z) {
+		Sprite fog = new Sprite(textureRegion);
+		Sprite tex = new Sprite(textureRegion);
+		fog.setColor(RGBA.rgba(200,200,200,alpha(z)));
+		fog.setPosition(x, y);
+		tex.setPosition(x, y);
+		batch.enableBlending();
+//		tex.draw(batch);
+		fog.draw(batch);
+	}
+	
+	private float alpha(float z) {
+		float zPlayer = player.getZPlayer();
+		float fZ = (z-zPlayer);
+		return fZ;
 	}
 }
