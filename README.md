@@ -27,3 +27,5 @@ _Разработка_
 
 _Графика_
 * YarikBur
+* Smirnov48
+* Iokin
